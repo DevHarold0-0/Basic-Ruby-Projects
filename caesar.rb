@@ -6,32 +6,26 @@ n = gets.chomp
 
 
 def caesar_cipher(string, n) 
-    ascii = string.chars.map(&:ord)
-
     
-
-    # shifted = ascii.map { |c| (c + n.to_i - 65) % 26 + 65 }
-
-    shifted = ascii.map do |c|
-        #exceptions
-        if c == 32
-            " "
-        elsif c == 33 
-            "!"
-
-        #cipher formulas
-        elsif c.chr == c.chr.upcase
-            (c + n.to_i - 65) % 26 + 65
-        elsif c.chr == c.chr.downcase
-            (c + n.to_i - 97) % 26 + 97
+    ascii = string.chars.map do |c|
+        int = c.ord
+        if int.between?(65, 90) 
+            int = ((int + n.to_i - 65) % 26 + 65).chr
+        elsif int.between?(97, 122)
+            int = ((int + n.to_i - 97) % 26 + 97).chr
+        else
+            c
         end
     end
 
+    result = ascii.join
 
-
-    encrypt = shifted.map { |c| c.chr }.join
-
-    puts encrypt
+    p result
 end
 
 caesar_cipher(string, n)
+
+
+
+
+
