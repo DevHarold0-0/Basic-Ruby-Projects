@@ -1,7 +1,5 @@
 dictionary = [ "below", "down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
-
-
 def substrings(string, dictionary, new_hash = Hash.new)
     sub = dictionary.map do |e|
         if string.downcase[e.downcase] == e
