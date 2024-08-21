@@ -1,6 +1,11 @@
 def bubble_sort(array)
     n = array.length
-    return array if n <= 1
+
+    if n < 1
+        return []
+    elsif n == 1
+        return array
+    end
 
     loop do
         swapped = false
